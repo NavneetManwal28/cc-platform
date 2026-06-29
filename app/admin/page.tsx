@@ -37,8 +37,8 @@ export default function AdminPage() {
     return matchSearch && matchPartner && matchCampaign;
   });
 
-  const campaigns = [...new Set(uploads.map(u => u.campaign).filter(Boolean))];
-  const partnerNames = [...new Set(uploads.map(u => u.partner_name).filter(Boolean))];
+  const campaigns = Array.from(new Set(uploads.map((u: any) => u.campaign).filter(Boolean)));
+  const partnerNames = Array.from(new Set(uploads.map((u: any) => u.partner_name).filter(Boolean)));
 
   if (loading) return <div className="min-h-screen flex items-center justify-center"><Loader2 size={32} className="animate-spin text-cc-red" /></div>;
 
